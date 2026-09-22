@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="吐槽网 - 分享生活中的奇葩遭遇、职场趣事与情感困惑。在这里释放压力，寻找共鸣，让吐槽成为生活的一种解压方式。">
+    <meta name="keywords" content="吐槽网,吐槽,吐槽大会,生活吐槽,职场吐槽,情感吐槽,搞笑段子,网友吐槽">
+    <title>吐槽网-分享生活中的奇葩遭遇与情感困惑</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff5e57;
+            --secondary-color: #ffcc00;
+            --bg-color: #f4f5f7;
+            --card-bg: #ffffff;
+            --text-main: #2f3542;
+            --text-sub: #747d8c;
+            --border-radius: 12px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            background: #f1f2f6;
+            border-radius: 20px;
+            padding: 5px 15px;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            padding: 5px;
+            width: 200px;
+        }
+
+        .search-box button {
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            color: var(--text-sub);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #ff5e57 0%, #ff9966 100%);
+            padding: 60px 0;
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            background: white;
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 16px;
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Main Grid */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        /* Feed */
+        .feed-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .feed-header h2 {
+            font-size: 20px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 12px;
+        }
+
+        .post-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s;
+        }
+
+        .post-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .post-meta {
+            font-size: 13px;
+            color: var(--text-sub);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #eee;
+        }
+
+        .post-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .post-content {
+            font-size: 16px;
+            color: #57606f;
+            margin-bottom: 15px;
+            white-space: pre-line;
+        }
+
+        .post-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            background: #f1f2f6;
+            color: var(--text-sub);
+        }
+
+        .tag.hot { background: #ffeaa7; color: #d35400; }
+
+        .post-actions {
+            display: flex;
+            gap: 20px;
+            border-top: 1px solid #f1f2f6;
+            padding-top: 15px;
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
+        .action-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .action-item:hover { color: var(--primary-color); }
+
+        /* Sidebar */
+        .sidebar-section {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+
+        .sidebar-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .ranking-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid #f8f9fa;
+        }
+
+        .ranking-list li:last-child { border-bottom: none; }
+
+        .rank-num {
+            font-size: 18px;
+            font-weight: 800;
+            color: #dfe4ea;
+            width: 20px;
+        }
+
+        .rank-num.top-1 { color: #ff5e57; }
+        .rank-num.top-2 { color: #ffa502; }
+        .rank-num.top-3 { color: #2ed573; }
+
+        .rank-info h4 {
+            font-size: 14px;
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+
+        .rank-info p {
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .cat-btn {
+            display: block;
+            text-align: center;
+            padding: 10px;
+            background: #f1f2f6;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        .cat-btn:hover { background: #eccc68; color: white; }
+
+        /* Footer */
+        footer {
+            background: #2f3542;
+            color: #a4b0be;
+            padding: 40px 0;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-layout { grid-template-columns: 1fr; }
+            .header-inner { flex-direction: column; height: auto; padding: 15px 0; gap: 15px; }
+            nav ul { gap: 15px; font-size: 14px; }
+            .search-box { width: 100%; }
+            .search-box input { flex: 1; }
+            .hero h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo">
+            💬 吐槽网<span>吐槽大会</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">职场吐槽</a></li>
+                <li><a href="#">情感吐槽</a></li>
+                <li><a href="#">奇葩遭遇</a></li>
+            </ul>
+        </nav>
+        <div class="search-box">
+            <input type="text" placeholder="搜一搜你的槽点...">
+            <button>🔍</button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>生活哪有那么多岁月静好</h1>
+            <p>在这里卸下伪装，把遇到的奇葩事、奇葩人统统说出来。我们听，你尽管吐槽。</p>
+            <a href="#submit" class="cta-button">我要吐槽</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container main-layout">
+        <!-- Feed Section -->
+        <section class="feed">
+            <div class="feed-header">
+                <h2>最新吐槽</h2>
+                <div class="filter-tabs">
+                    <a href="#" style="color:var(--primary-color); font-weight:bold;">推荐</a>
+                    <a href="#">最新</a>
+                    <a href="#">最热</a>
+                </div>
+            </div>
+
+            <article class="post-card">
+                <div class="post-meta">
+                    <img src="https://picsum.photos/seed/u1/50/50" alt="头像" class="user-avatar">
+                    <span>匿名用户</span>
+                    <span>• 2小时前</span>
+                    <span>• 职场吐槽</span>
+                </div>
+                <h3 class="post-title">入职第三天就被叫去写周报，这真的是职场吗？</h3>
+                <div class="post-content">
+                   今天去公司第一天，主管就把我拉进群，让我把昨天那点"了解业务"的废话写成周报。我连电脑都没开，人还没坐热乎，就要产出成果？这是在考验我的适应能力，还是在PUA我？
+                </div>
+                <div class="post-tags">
+                    <span class="tag hot">#职场潜规则</span>
+                    <span class="tag">#新人困境</span>
+                    <span class="tag">#社畜日常</span>
+                </div>
+                <div class="post-actions">
+                    <span class="action-item">👍 128</span>
+                    <span class="action-item">💬 45</span>
+                    <span class="action-item">🔥 热度</span>
+                </div>
+            </article>
+
+            <article class="post-card">
+                <div class="post-meta">
+                    <img src="https://picsum.photos/seed/u2/50/50" alt="头像" class="user-avatar">
+                    <span>快乐小仙女</span>
+                    <span>• 4小时前</span>
+                    <span>• 情感吐槽</span>
+                </div>
+                <h3 class="post-title">相亲遇到个奇葩，这真的是来谈恋爱的吗？</h3>
+                <div class="post-content">
+                   相亲对象全程一直在问我的公积金多少，工资多少，甚至问我能不能接受婚后工资上交。吃饭的时候还要算计谁付钱，最后还嫌弃我不够大方。这种算计到骨子里的男人，真的让人反胃！
+                </div>
+                <div class="post-tags">
+                    <span class="tag">#奇葩相亲</span>
+                    <span class="tag">#金钱观</span>
+                    <span class="tag">#直男癌</span>
+                </div>
+                <div class="post-actions">
+                    <span class="action-item">👍 356</span>
+                    <span class="action-item">💬 89</span>
+                    <span class="action-item">🔥 热度</span>
+                </div>
+            </article>
+
+            <article class="post-card">
+                <div class="post-meta">
+                    <img src="https://picsum.photos/seed/u3/50/50" alt="头像" class="user-avatar">
+                    <span>路过的咸鱼</span>
+                    <span>• 5小时前</span>
+                    <span>• 楼市吐槽</span>
+                </div>
+                <h3 class="post-title">现在的房价，是给谁看的？</h3>
+                <div class="post-content">
+                   看着手里攒了三年的钱，连个厕所都买不起，真的想哭。开发商还在那里喊着"刚需"，我们这些刚需连看房的资格都没有。这年头，努力工作还有用吗？
+                </div>
+                <div class="post-tags">
+                    <span class="tag">#房价</span>
+                    <span class="tag">#买房</span>
+                    <span class="tag">#扎心</span>
+                </div>
+                <div class="post-actions">
+                    <span class="action-item">👍 892</span>
+                    <span class="action-item">💬 120</span>
+                    <span class="action-item">🔥 热度</span>
+                </div>
+            </article>
+        </section>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">热门吐槽榜</h3>
+                <ul class="ranking-list">
+                    <li>
+                        <span class="rank-num top-1">1</span>
+                        <div class="rank-info">
+                            <h4>这届网友太真实了，看完笑出猪叫！</h4>
+                            <p>2.3w 次吐槽</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="rank-num top-2">2</span>
+                        <div class="rank-info">
+                            <h4>公司年会抽奖抽到一台扫地机器人</h4>
+                            <p>1.8w 次吐槽</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="rank-num top-3">3</span>
+                        <div class="rank-info">
+                            <h4>这就是传说中的"我不吃香菜"吗？</h4>
+                            <p>1.5w 次吐槽</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="rank-num">4</span>
+                        <div class="rank-info">
+                            <h4>异地恋男友竟然要跟我AA路费？</h4>
+                            <p>1.2w 次吐槽</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="rank-num">5</span>
+                        <div class="rank-info">
+                            <h4>第一次去男朋友家，他妈妈做的菜...</h4>
+                            <p>9800 次吐槽</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">吐槽分类</h3>
+                <div class="category-grid">
+                    <a href="#" class="cat-btn">🏢 职场</a>
+                    <a href="#" class="cat-btn">❤️ 情感</a>
+                    <a href="#" class="cat-btn">🛒 购物</a>
+                    <a href="#" class="cat-btn">🏠 生活</a>
+                    <a href="#" class="cat-btn">🚗 交通</a>
+                    <a href="#" class="cat-btn">📱 科技</a>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">吐槽指南</h3>
+                <p style="font-size:13px; color:#747d8c; line-height:1.8;">
+                    在这里，你可以匿名分享你的烦恼和快乐。请保持理性吐槽，文明发言，共同维护一个健康的吐槽社区环境。
+                </p>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="#">关于我们</a>
+            <a href="#">用户协议</a>
+            <a href="#">隐私政策</a>
+            <a href="#">联系合作</a>
+            <a href="#">举报中心</a>
+        </div>
+        <p>&copy; 2023 吐槽网 版权所有 | 生活很苦，吐槽很甜</p>
+    </div>
+</footer>
+
+</body>
+</html>
