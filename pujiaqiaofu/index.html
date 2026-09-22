@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>普加乔夫-俄罗斯历史人物与叶卡捷琳娜大帝时代研究</title>
+    <meta name="description" content="本站专注于介绍普加乔夫的历史生平、1773-1775年农民战争背景、主要战役及历史评价。提供详实的史料分析，探讨叶卡捷琳娜二世统治下的社会矛盾与农民起义。">
+    <meta name="keywords" content="普加乔夫, 叶卡捷琳娜大帝, 普加乔夫起义, 俄罗斯历史, 农民战争, 哥萨克领袖">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8B0000; /* 深红，象征历史与动荡 */
+            --secondary-color: #D4AF37; /* 金色，象征皇室与勋章 */
+            --bg-color: #F9F7F2; /* 米色纸张质感 */
+            --text-color: #333333;
+            --text-light: #666666;
+            --border-color: #E0E0E0;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "SimSun", serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: #fff;
+            border-bottom: 3px solid var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            border: 2px solid var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        nav a.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, #4a0000 0%, #8B0000 100%);
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "1773";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.05);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary-color);
+            color: #000;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #bfa030;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* 主要内容网格 */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-top: -40px;
+            position: relative;
+            z-index: 2;
+            padding-bottom: 50px;
+        }
+
+        /* 左侧内容区 */
+        .content-section {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title span {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: normal;
+            border-left: none;
+            padding-left: 0;
+        }
+
+        /* 人物卡片 */
+        .profile-card {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            background-color: #ddd;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--bg-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .profile-text h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        .profile-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .tag {
+            background: #eee;
+            padding: 4px 10px;
+            border-radius: 20px;
+            color: #555;
+        }
+
+        /* 历史背景列表 */
+        .timeline-list {
+            list-style: none;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .timeline-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .timeline-list li::before {
+            content: "";
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        .timeline-list h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-list p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* 右侧侧边栏 */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .sidebar-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .stat-value {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* 军事战役卡片 */
+        .battle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .battle-item {
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .battle-item:hover {
+            border-color: var(--primary-color);
+            background-color: #fff5f5;
+        }
+
+        .battle-year {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .battle-name {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* 评价/观点 */
+        .quote-box {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-left: 4px solid var(--secondary-color);
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .quote-author {
+            text-align: right;
+            font-size: 0.8rem;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #2c2c2c;
+            color: #ccc;
+            padding: 40px 0;
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 8px;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .profile-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            nav {
+                display: none; /* 移动端简化，实际项目可做汉堡菜单 */
+            }
+            
+            .header-inner {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo"><span>1773</span> 普加乔夫历史档案</div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">人物生平</a></li>
+                    <li><a href="#">农民战争</a></li>
+                    <li><a href="#">历史评价</a></li>
+                    <li><a href="#">相关文献</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>叶卡捷琳娜二世时代的农民领袖</h1>
+            <p>深入了解埃曼努尔·瓦西里耶维奇·普加乔夫及其领导的1773-1775年俄国农民战争，这段波澜壮阔的历史如何撼动了帝国的根基。</p>
+            <a href="#profile" class="btn">探索历史档案</a>
+        </div>
+    </section>
+
+    <div class="container main-grid">
+        <!-- 左侧主要内容 -->
+        <main>
+            <!-- 人物简介 -->
+            <article id="profile" class="content-section">
+                <div class="section-title">
+                    <h2>人物生平</h2>
+                    <span>1774年受审时的形象</span>
+                </div>
+                <div class="profile-card">
+                    <img src="https://picsum.photos/seed/pugachev/300/300" alt="普加乔夫画像" class="profile-img">
+                    <div class="profile-text">
+                        <h2>埃曼努尔·瓦西里耶维奇·普加乔夫</h2>
+                        <div class="profile-meta">
+                            <span class="tag">约1742年-1775年</span>
+                            <span class="tag">哥萨克首领</span>
+                            <span class="tag">农民战争领袖</span>
+                        </div>
+                        <p>普加乔夫是俄国历史上的传奇人物，原名叶曼纽尔·叶莫连科。他出身贫寒，早年曾在俄国军队中服役，参加过七年的俄土战争。退役后，他成为一名哥萨克小头目。1773年，他自封为沙皇彼得三世，在顿河畔掀起了一场规模空前的农民起义。</p>
+                        <p style="margin-top: 15px;">尽管最终起义被镇压，普加乔夫也被处决，但他所代表的社会诉求和反抗精神在俄国历史上留下了深刻的印记。</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 起义背景 -->
+            <section class="content-section">
+                <div class="section-title">
+                    <h2>起义背景与起因</h2>
+                </div>
+                <p>18世纪中叶的俄国农奴制日趋腐朽，贵族对农奴的剥削极其残酷。叶卡捷琳娜二世继位后，虽然推行了一些开明政策，但并未触动农奴制的根本。与此同时，由于长期的战争，社会矛盾激化，粮食歉收和赋税沉重让底层民众苦不堪言。</p>
+                <br>
+                <ul class="timeline-list">
+                    <li>
+                        <h3>社会矛盾的激化</h3>
+                        <p>贵族与农奴、中央与地方之间的矛盾日益尖锐，哥萨克军队因待遇问题怨声载道。</p>
+                    </li>
+                    <li>
+                        <h3>普加乔夫的伪装</h3>
+                        <p>普加乔夫利用当时民众对前任沙皇彼得三世的怀念，以及宫廷政变带来的政治动荡，精心策划了这场起义。</p>
+                    </li>
+                    <li>
+                        <h3>传播与动员</h3>
+                        <p>他发布告示，宣称要废除农奴制、减轻赋税，这一极具诱惑力的承诺迅速吸引了底层民众和不满的哥萨克加入。</p>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- 主要战役 -->
+            <section class="content-section">
+                <div class="section-title">
+                    <h2>关键战役与进程</h2>
+                </div>
+                <div class="battle-grid">
+                    <div class="battle-item">
+                        <span class="battle-year">1773年7月</span>
+                        <span class="battle-name">扎伊采沃起义</span>
+                    </div>
+                    <div class="battle-item">
+                        <span class="battle-year">1773年8月</span>
+                        <span class="battle-name">攻克奥伦堡</span>
+                    </div>
+                    <div class="battle-item">
+                        <span class="battle-year">1773年10月</span>
+                        <span class="battle-name">恰希河大捷</span>
+                    </div>
+                    <div class="battle-item">
+                        <span class="battle-year">1774年7月</span>
+                        <span class="battle-name">进军喀山</span>
+                    </div>
+                    <div class="battle-item">
+                        <span class="battle-year">1774年8月</span>
+                        <span class="battle-name">察里津之战</span>
+                    </div>
+                    <div class="battle-item">
+                        <span class="battle-year">1775年1月</span>
+                        <span class="battle-name">围攻喀山失败</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 右侧侧边栏 -->
+        <aside>
+            <div class="sidebar-card">
+                <h3>历史数据</h3>
+                <div class="stat-item">
+                    <span>持续时间</span>
+                    <span class="stat-value">2年</span>
+                </div>
+                <div class="stat-item">
+                    <span>控制区域</span>
+                    <span class="stat-value">约1/3俄国</span>
+                </div>
+                <div class="stat-item">
+                    <span>参与人数</span>
+                    <span class="stat-value">数十万</span>
+                </div>
+                <div class="stat-item">
+                    <span>牺牲人数</span>
+                    <span class="stat-value">约5万</span>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>历史评价</h3>
+                <div class="quote-box">
+                    “他是那个时代最伟大的农民领袖之一，虽然他的胜利是暂时的，但他的精神激励了后人。”
+                </div>
+                <p style="font-size: 0.9rem; color: #555;">—— 历史学家关于普加乔夫的评价</p>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>主要盟友</h3>
+                <ul style="list-style: none; font-size: 0.95rem; color: #444;">
+                    <li style="margin-bottom: 10px;">• 哥萨克首领叶莫拉伊</li>
+                    <li style="margin-bottom: 10px;">• 蒙古首领巴图尔·穆拉托夫</li>
+                    <li style="margin-bottom: 10px;">• 鞑靼起义军首领伊马诺夫</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于普加乔夫</h4>
+                    <p>本站致力于提供关于普加乔夫起义的详尽历史资料与学术研究，帮助后人了解18世纪俄国社会的真实面貌。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>相关链接</h4>
+                    <ul>
+                        <li><a href="#">俄国农奴制历史</a></li>
+                        <li><a href="#">叶卡捷琳娜二世生平</a></li>
+                        <li><a href="#">哥萨克文化</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>版权声明</h4>
+                    <p>本站内容仅供学术研究与历史参考，部分图片来自网络，如有版权问题请联系删除。</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 普加乔夫历史档案网. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
