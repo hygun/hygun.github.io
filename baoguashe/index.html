@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="爆瓜社 - 热门娱乐八卦、影视资讯与社区讨论平台，提供最新明星动态、影视解说及深度评论。">
+    <meta name="keywords" content="爆瓜社,娱乐八卦,影视资讯,明星动态,娱乐社区">
+    <title>爆瓜社-热门娱乐八卦与影视资讯社区</title>
+    <style>
+        :root {
+            --primary-color: #ff4757;
+            --secondary-color: #2f3542;
+            --accent-color: #ffa502;
+            --bg-color: #f1f2f6;
+            --card-bg: #ffffff;
+            --text-main: #2f3542;
+            --text-light: #747d8c;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            display: inline-block;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--text-light);
+            color: var(--text-main);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #e84118;
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #2f3542 0%, #1e272e 100%);
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #dfe4ea;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tag {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Main Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        /* Article Cards */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e1e1e1;
+            padding-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .article-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 24px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .article-content {
+            padding: 20px;
+        }
+
+        .article-meta {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .category-tag {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .article-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .article-excerpt {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .read-more {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-color);
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .read-more::after {
+            content: '→';
+            margin-left: 4px;
+            transition: margin-left 0.2s;
+        }
+
+        .read-more:hover::after {
+            margin-left: 8px;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 24px;
+        }
+
+        .widget-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            padding-left: 10px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .rank-list li {
+            display: flex;
+            align-items: start;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .rank-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .rank-num {
+            font-size: 20px;
+            font-weight: 800;
+            color: #dfe4ea;
+            width: 24px;
+            line-height: 1;
+            margin-top: 2px;
+        }
+
+        .rank-num.top-3 {
+            color: var(--primary-color);
+        }
+
+        .rank-info h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .rank-info p {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* Trending Topics */
+        .topic-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .topic-item {
+            background-color: #f1f2f6;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: var(--secondary-color);
+            transition: background 0.2s;
+        }
+
+        .topic-item:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Hot News Ticker */
+        .ticker-wrap {
+            width: 100%;
+            background: var(--secondary-color);
+            color: white;
+            overflow: hidden;
+            height: 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .ticker-title {
+            background: var(--primary-color);
+            padding: 0 20px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 14px;
+            z-index: 2;
+        }
+
+        .ticker {
+            display: inline-block;
+            white-space: nowrap;
+            padding-right: 100%;
+            animation: ticker 30s linear infinite;
+        }
+
+        .ticker-item {
+            display: inline-block;
+            padding: 0 2rem;
+            font-size: 14px;
+        }
+
+        @keyframes ticker {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: var(--border-radius);
+            margin-bottom: 60px;
+        }
+
+        .newsletter h2 {
+            margin-bottom: 10px;
+        }
+
+        .newsletter p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .input-group {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 8px;
+        }
+
+        .input-group input {
+            flex: 1;
+            padding: 12px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+        }
+
+        .input-group button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0 24px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #a4b0be;
+            padding: 60px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                height: auto;
+                padding: 10px 0;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .input-group {
+                flex-direction: column;
+            }
+
+            .input-group button {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 广告位：顶部通栏 -->
+    <div style="background: #e1e1e1; height: 90px; display: flex; align-items: center; justify-content: center; color: #999; margin-bottom: 20px;">
+        <!-- 模拟广告位 -->
+        <span>广告位 (Top Banner)</span>
+    </div>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                🔥 <span>爆瓜社</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">影视</a>
+                <a href="#">综艺</a>
+                <a href="#">明星</a>
+                <a href="#">娱乐</a>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline">登录</button>
+                <button class="btn btn-primary">投稿</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 热门新闻滚动条 -->
+        <div class="ticker-wrap">
+            <div class="ticker-title">HOT</div>
+            <div class="ticker">
+                <span class="ticker-item">🎬 流行乐坛年度盛典名单公布，爆瓜社独家首发</span>
+                <span class="ticker-item">🎬 某知名演员新片定档，定档海报引发热议</span>
+                <span class="ticker-item">🎬 热门综艺第二季回归，嘉宾阵容大曝光</span>
+                <span class="ticker-item">🎬 爆瓜社评选年度最具影响力艺人榜单</span>
+                <span class="ticker-item">🎬 新晋小花旦恋情曝光，工作室紧急回应</span>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>吃瓜第一线，爆料全掌握</h1>
+                <p>汇聚全网最新娱乐资讯、深度影评与独家八卦，为您提供最真实的娱乐圈观察视角。</p>
+                <div class="hero-tags">
+                    <span class="tag">#最新爆料</span>
+                    <span class="tag">#影视解说</span>
+                    <span class="tag">#明星同款</span>
+                    <span class="tag">#圈内趣事</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="main-grid">
+                <!-- 左侧内容区 -->
+                <div class="content-area">
+                    
+                    <!-- 推荐栏目 -->
+                    <section>
+                        <div class="section-header">
+                            <h2 class="section-title">今日头条</h2>
+                            <a href="#" class="read-more">查看更多</a>
+                        </div>
+
+                        <article class="article-card">
+                            <img src="https://picsum.photos/seed/ent1/800/400" alt="影视剧照" class="article-image">
+                            <div class="article-content">
+                                <div class="article-meta">
+                                    <span class="category-tag">影视</span>
+                                    <span>2小时前</span>
+                                    <span>评论 128</span>
+                                </div>
+                                <h3 class="article-title"><a href="#">年度科幻巨制定档国庆档，预告片视觉震撼引爆期待</a></h3>
+                                <p class="article-excerpt">备受瞩目的年度科幻大片终于定档，导演在发布会上透露，本片采用了最前沿的CG技术，打造了一个前所未有的未来世界...</p>
+                                <a href="#" class="read-more">阅读全文</a>
+                            </div>
+                        </article>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                            <article class="article-card">
+                                <img src="https://picsum.photos/seed/ent2/400/250" alt="活动现场" class="article-image">
+                                <div class="article-content">
+                                    <div class="article-meta">
+                                        <span class="category-tag">综艺</span>
+                                        <span>5小时前</span>
+                                    </div>
+                                    <h3 class="article-title"><a href="#">音乐综艺导师阵容尘埃落定，神秘大咖空降</a></h3>
+                                    <a href="#" class="read-more">阅读全文</a>
+                                </div>
+                            </article>
+
+                            <article class="article-card">
+                                <img src="https://picsum.photos/seed/ent3/400/250" alt="时尚街拍" class="article-image">
+                                <div class="article-content">
+                                    <div class="article-meta">
+                                        <span class="category-tag">时尚</span>
+                                        <span>8小时前</span>
+                                    </div>
+                                    <h3 class="article-title"><a href="#">红毯造型大赏：谁才是今晚最耀眼的明星？</a></h3>
+                                    <a href="#" class="read-more">阅读全文</a>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 40px 0;">
+
+                    <!-- 最新资讯列表 -->
+                    <section>
+                        <div class="section-header">
+                            <h2 class="section-title">最新动态</h2>
+                        </div>
+                        
+                        <div class="article-card" style="flex-direction: row; align-items: center;">
+                            <img src="https://picsum.photos/seed/ent4/200/200" alt="明星" style="width: 200px; height: 200px; border-radius: 8px; object-fit: cover;">
+                            <div class="article-content" style="flex: 1;">
+                                <div class="article-meta">
+                                    <span class="category-tag">明星</span>
+                                    <span>10分钟前</span>
+                                </div>
+                                <h3 class="article-title"><a href="#">低调现身机场，新造型引发粉丝热议</a></h3>
+                                <p class="article-excerpt">近日，某当红小生低调现身北京机场，一身休闲装扮却难掩星味，新染的发型更是成为了焦点...</p>
+                            </div>
+                        </div>
+
+                        <div class="article-card" style="flex-direction: row; align-items: center;">
+                            <img src="https://picsum.photos/seed/ent5/200/200" alt="奖项" style="width: 200px; height: 200px; border-radius: 8px; object-fit: cover;">
+                            <div class="article-content" style="flex: 1;">
+                                <div class="article-meta">
+                                    <span class="category-tag">奖项</span>
+                                    <span>2小时前</span>
+                                </div>
+                                <h3 class="article-title"><a href="#">金鸡奖提名名单公布，老戏骨表现抢眼</a></h3>
+                                <p class="article-excerpt">第XX届金鸡奖提名名单正式揭晓，多部口碑佳作入围最佳影片，竞争异常激烈...</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- 右侧侧边栏 -->
+                <aside class="sidebar">
+                    <!-- 登录/注册卡片 -->
+                    <div class="sidebar-widget" style="text-align: center; background: linear-gradient(135deg, #2f3542 0%, #57606f 100%); color: white;">
+                        <h3 style="margin-bottom: 10px;">加入爆瓜社</h3>
+                        <p style="font-size: 13px; margin-bottom: 15px; opacity: 0.8;">第一时间获取独家爆料，参与话题讨论</p>
+                        <button class="btn btn-primary" style="width: 100%; background: white; color: var(--primary-color);">立即注册</button>
+                    </div>
+
+                    <!-- 热门排行 -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">热门排行</h3>
+                        <ul class="rank-list">
+                            <li>
+                                <span class="rank-num top-3">1</span>
+                                <div class="rank-info">
+                                    <h4><a href="#">某顶流明星深夜聚餐照流出</a></h4>
+                                    <p>娱乐</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="rank-num top-3">2</span>
+                                <div class="rank-info">
+                                    <h4><a href="#">年度最佳剧本奖花落谁家？</a></h4>
+                                    <p>影视</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="rank-num top-3">3</span>
+                                <div class="rank-info">
+                                    <h4><a href="#">新剧收视率破2，口碑炸裂</a></h4>
+                                    <p>电视剧</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="rank-num">4</span>
+                                <div class="rank-info">
+                                    <h4><a href="#">知名导演宣布息影转型幕后</a></h4>
+                                    <p>行业</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="rank-num">5</span>
+                                <div class="rank-info">
+                                    <h4><a href="#">某综艺录制现场突发状况</a></h4>
+                                    <p>综艺</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 热门话题 -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">热门话题</h3>
+                        <div class="topic-cloud">
+                            <a href="#" class="topic-item">#娱乐圈内幕</a>
+                            <a href="#" class="topic-item">#影视推荐</a>
+                            <a href="#" class="topic-item">#明星同款</a>
+                            <a href="#" class="topic-item">#好剧推荐</a>
+                            <a href="#" class="topic-item">#八卦爆料</a>
+                            <a href="#" class="topic-item">#颁奖典礼</a>
+                            <a href="#" class="topic-item">#影视解说</a>
+                        </div>
+                    </div>
+
+                    <!-- 广告位：侧边栏 -->
+                    <div style="background: #e1e1e1; height: 250px; display: flex; align-items: center; justify-content: center; color: #999; border-radius: 8px;">
+                        <span>广告位 (Sidebar)</span>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+        <!-- 订阅区域 -->
+        <section class="container">
+            <div class="newsletter">
+                <h2>订阅爆瓜社早报</h2>
+                <p>每天早上8点，为您送上今日最值得关注的娱乐资讯，拒绝信息过载。</p>
+                <form class="input-group" onsubmit="event.preventDefault(); alert('订阅成功！感谢您的关注。');">
+                    <input type="email" placeholder="请输入您的邮箱地址" required>
+                    <button type="submit">订阅</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>🔥 爆瓜社</h3>
+                    <p style="font-size: 14px; line-height: 1.8;">专注于为用户提供最快、最准、最全的娱乐资讯服务。我们致力于打造最真实的娱乐圈观察窗口。</p>
+                </div>
+                <div class="footer-col">
+                    <h3>栏目导航</h3>
+                    <ul>
+                        <li><a href="#">影视资讯</a></li>
+                        <li><a href="#">明星动态</a></li>
+                        <li><a href="#">综艺快报</a></li>
+                        <li><a href="#">深度评论</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>关于我们</h3>
+                    <ul>
+                        <li><a href="#">公司简介</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">免责声明</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>关注我们</h3>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">抖音号</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 爆瓜社 版权所有 | 本站内容仅供娱乐参考，不代表本站立场</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+                              </html>
