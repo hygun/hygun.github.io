@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="QQ紫钻会员服务中心，提供QQ紫钻等级规则、特权介绍、充值方式、续费指南及常见问题解答。帮助用户了解如何开通、升级及享受QQ紫钻专属特权。">
+    <meta name="keywords" content="QQ紫钻,QQ会员,QQ黄钻,QQ红钻,QQ绿钻,QQ蓝钻,QQ紫钻充值,QQ等级特权">
+    <title>QQ紫钻-QQ会员等级特权与充值服务指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #9c27b0;
+            --primary-dark: #7b1fa2;
+            --accent-color: #e1bee7;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --bg-body: #f8f9fa;
+            --bg-card: #ffffff;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .btn-login {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .btn-login:hover {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #4a148c 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            min-width: 150px;
+        }
+
+        .feature-icon {
+            font-size: 32px;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 32px;
+        }
+
+        /* Content Sections */
+        .section-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title h2 {
+            color: var(--primary-dark);
+        }
+
+        /* Level Table */
+        .level-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .level-table th, .level-table td {
+            text-align: left;
+            padding: 16px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .level-table th {
+            background-color: #f3f0ff;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .level-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .badge-vip {
+            background-color: #e1bee7;
+            color: #4a148c;
+        }
+
+        /* Privileges Grid */
+        .privilege-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .privilege-card {
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .privilege-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+            border-color: var(--accent-color);
+        }
+
+        .privilege-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .privilege-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-dark);
+            font-size: 20px;
+        }
+
+        .privilege-title {
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .privilege-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .sidebar-title {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .steps-list li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .steps-list li::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 16px 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            font-size: 14px;
+            color: var(--text-secondary);
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "-";
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #aaa;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .header-inner {
+                padding: 0 12px;
+            }
+
+            nav {
+                display: none; /* Simplified for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <span style="color:var(--primary-color);">QQ</span>紫钻
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#privileges">特权介绍</a></li>
+                    <li><a href="#rules">等级规则</a></li>
+                    <li><a href="#guide">开通指南</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="btn-login">立即开通</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>尊享QQ紫钻专属特权</h1>
+            <p>解锁QQ空间装扮、状态秀、等级加速等高级功能，提升您的社交体验与个人形象。</p>
+            
+            <div class="hero-features">
+                <div class="feature-item">
+                    <div class="feature-icon">🎨</div>
+                    <span>空间装扮</span>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⏱️</div>
+                    <span>等级加速</span>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">👑</div>
+                    <span>尊贵标识</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Left Column -->
+            <div class="content-area">
+                <!-- Privileges Section -->
+                <section id="privileges" class="section-card">
+                    <div class="section-title">
+                        <h2>紫钻特权详解</h2>
+                    </div>
+                    <div class="privilege-grid">
+                        <article class="privilege-card">
+                            <div class="privilege-header">
+                                <div class="privilege-icon">🖼️</div>
+                                <div class="privilege-title">高级装扮素材</div>
+                            </div>
+                            <p class="privilege-desc">拥有海量免费的高级装扮素材、主题皮肤、边框和挂件，让您的QQ空间独一无二。</p>
+                        </article>
+
+                        <article class="privilege-card">
+                            <div class="privilege-header">
+                                <div class="privilege-icon">✨</div>
+                                <div class="privilege-title">状态秀特权</div>
+                            </div>
+                            <p class="privilege-desc">上传高清自定义状态秀，支持更多特效展示，彰显个性与品味。</p>
+                        </article>
+
+                        <article class="privilege-card">
+                            <div class="privilege-header">
+                                <div class="privilege-icon">🚀</div>
+                                <div class="privilege-title">等级加速加成</div>
+                            </div>
+                            <p class="privilege-desc">享受QQ等级加速加成，每日活跃后获得更多成长值，快速提升等级。</p>
+                        </article>
+
+                        <article class="privilege-card">
+                            <div class="privilege-header">
+                                <div class="privilege-icon">💎</div>
+                                <div class="privilege-title">专属身份标识</div>
+                            </div>
+                            <p class="privilege-desc">在好友列表和空间中拥有专属的紫钻标识，提升辨识度。</p>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Rules Section -->
+                <section id="rules" class="section-card">
+                    <div class="section-title">
+                        <h2>等级与成长规则</h2>
+                    </div>
+                    <p style="margin-bottom: 16px; color: var(--text-secondary);">QQ紫钻等级基于用户在QQ空间内的活跃行为进行计算。开通紫钻后，每日登录、发表说说、上传照片等行为均可获得成长值。</p>
+                    <table class="level-table">
+                        <thead>
+                            <tr>
+                                <th>等级</th>
+                                <th>成长值要求</th>
+                                <th>主要权益</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="badge badge-vip">LV1</span></td>
+                                <td>0 成长值</td>
+                                <td>基础紫钻标识</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-vip">LV2</span></td>
+                                <td>10 成长值</td>
+                                <td>获得专属皮肤</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-vip">LV3</span></td>
+                                <td>50 成长值</td>
+                                <td>状态秀高清上传</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-vip">LV4+</span></td>
+                                <td>100 成长值</td>
+                                <td>更多装扮权限与加速加成</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Guide Section -->
+                <section id="guide" class="section-card">
+                    <div class="section-title">
+                        <h2>开通与续费指南</h2>
+                    </div>
+                    <div class="privilege-grid">
+                        <article class="privilege-card">
+                            <div class="privilege-header">
+                                <div class="privilege-icon">📱</div>
+                                <div class="privilege-title">手机开通</div>
+                            </div>
+                            <p class="privilege-desc">通过手机QQ客户端或腾讯充值中心，搜索“QQ紫钻”即可快速开通。</p>
+                        </article>
+                        <article class="privilege-card">
+                            <div class="privilege-header">
+                                <div class="privilege-icon">💳</div>
+                                <div class="privilege-title">网页充值</div>
+                            </div>
+                            <p class="privilege-desc">访问腾讯会员官网，使用微信、QQ钱包或银行卡进行支付开通。</p>
+                        </article>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column -->
+            <aside class="sidebar">
+                <!-- Steps Widget -->
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">开通步骤</h3>
+                    <ol class="steps-list">
+                        <li>登录QQ账号</li>
+                        <li>进入“我的QQ中心”或腾讯会员官网</li>
+                        <li>搜索并选择“QQ紫钻”</li>
+                        <li>选择套餐并完成支付</li>
+                    </ol>
+                    <div style="margin-top: 20px; text-align: center;">
+                        <a href="#" style="color: var(--primary-color); font-weight: bold;">去开通 &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- FAQ Widget -->
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">常见问题</h3>
+                    <div class="faq-item" onclick="this.classList.toggle('active')">
+                        <div class="faq-question">紫钻到期后会降级吗？</div>
+                        <div class="faq-answer">是的，紫钻到期后，您的等级和特权将立即失效，装扮素材将无法使用。</div>
+                    </div>
+                    <div class="faq-item" onclick="this.classList.toggle('active')">
+                        <div class="faq-question">如何查看我的成长值？</div>
+                        <div class="faq-answer">登录QQ空间，在个人中心可以查看当前的紫钻等级和剩余成长值。</div>
+                    </div>
+                    <div class="faq-item" onclick="this.classList.toggle('active')">
+                        <div class="faq-question">黄钻可以升级为紫钻吗？</div>
+                        <div class="faq-answer">可以，您可以在腾讯会员中心选择升级到其他类型的QQ会员。</div>
+                    </div>
+                </div>
+
+                <!-- Promo Widget -->
+                <div class="sidebar-widget" style="background: linear-gradient(to right, #f3e5f5, #e1bee7); border: 1px solid #ce93d8;">
+                    <h3 class="sidebar-title">限时优惠</h3>
+                    <p style="font-size: 14px; color: #4a148c; margin-bottom: 12px;">新用户首月特惠，立省XX元！</p>
+                    <button class="btn-login" style="width: 100%; border-radius: 4px;">查看优惠</button>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>关于QQ紫钻</h3>
+                <ul>
+                    <li><a href="#">会员服务协议</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">退订说明</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>帮助中心</h3>
+                <ul>
+                    <li><a href="#">开通指南</a></li>
+                    <li><a href="#">充值问题</a></li>
+                    <li><a href="#">等级规则</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>联系方式</h3>
+                <ul>
+                    <li>客服电话：400-xxx-xxxx</li>
+                    <li>电子邮箱：service@qq.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 腾讯公司 版权所有 | 本页面为信息展示示例，非腾讯官方网站</p>
+        </div>
+    </footer>
+
+</body>
+</html>
